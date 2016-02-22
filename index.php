@@ -60,7 +60,6 @@
       </div>
       
       
-      
       <div class="row" id="eventMap">
         <div class="col-md-1"></div>
         <div class="col-md-10">
@@ -82,7 +81,7 @@
 						      Map
 						    </md-tab-label>
 				        <md-content class="md-padding">
-				        	<ng-include src="'templates/eventMap.tmpl.html'">
+				        	<ng-include src="'templates/eventMap.tmpl.html'" >
 									</ng-include>
 				        </md-content>
 				      </md-tab>
@@ -112,16 +111,16 @@
 				<script src="js/lib/jquery/jquery-1.11.2.min.js"></script>
 				<!-- Lib -->
 		    <script src="js/lib/bootstrap/bootstrap.js"></script>
-		    <script src="bower_components/lodash/lodash.js"></script>
+		    <script src="bower_components/lodash/dist/lodash.min.js"></script>
 				<!-- Angular -->
 				<script src="components/angular/angular.min.js"></script>
 				<script src="js/lib/angular/angular-route-1.3.15.js"></script>
 				<script src="js/lib/angular/angular-sanitize.js"></script>
 				<script src="js/lib/angular/angular-ui-tree.min.js"></script>
 				<script src="js/lib/angular/angular-resizable.min.js"></script>
-				<script src="components/angular-animate/angular-animate.js"></script>
+				<script src="components/angular-animate/angular-animate.min.js"></script>
 				<script src="js/lib/angular/angular-simple-logger.js"></script>
-				<script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+				<script src="bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
 				<script src="js/lib/angular/angular-aria.min.js"></script>
 				<script src="js/lib/angular/angular-material.min.js"></script>
 				<!-- Angular Main -->
