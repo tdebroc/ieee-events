@@ -1,0 +1,39 @@
+<md-dialog ng-cloak flex="80" class="reviewToMake-dialog"  >
+  <form>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>{{meetingSelected.title}}</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancelEventDialog()">
+        <md-icon md-svg-src="images/icons2/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content style="max-height:810px; ">
+    <div class="md-dialog-content">
+      <table class='table'>
+	      <tr ng-repeat="(key, element) in meetingSelected" ng-if="shouldDisplaySimpleText(key)">
+	        <td><b>{{key}}</b>:</td>
+	        <td>
+            <span ng-bind-html="::element | unsafe"></span>
+	        </td>
+	      </tr>
+      </table>
+      
+      <ui-gmap-google-map center='modalMap.center' zoom='modalMap.zoom'
+          ng-if="meetingSelected.latitude">
+	      <ui-gmap-marker
+	        idKey="'modalMarker'"
+	        coords='markerModalMap.center'
+	        >
+      	</ui-gmap-marker>
+      </ui-gmap-google-map>
+    </div>
+  </md-dialog-content>
+  <div class="md-actions" layout="row">
+    <md-button ng-click="closeEventDialog()" style="margin-right:20px;" >
+      Close
+    </md-button>
+  </div>
+  </form>
+</md-dialog>

@@ -1,0 +1,17 @@
+<table id="meetingTable" class="table table-striped">
+  <tr>
+    <th>Date</th>
+    <th>Title</th>
+  </tr>
+  <tr ng-repeat="meeting in meetingsToDisplay"
+      ng-click="showEventDialog($event, meeting)">
+    <td>
+      <a href="#" class="meetingLink" data-id="{{meeting.id}}">
+        {{meeting.start_time}}
+        </a>
+      </td>
+    <td>
+      {{meeting.title}} {{meeting.category}}
+    </td>
+  </tr>
+</table>
