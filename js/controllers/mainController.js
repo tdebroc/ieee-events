@@ -40,7 +40,7 @@ app.controller('MainController', [
 			
 			$scope.meetingsToDisplay = [];
 			$scope.makersToDisplay = [];
-			$scope.$watchGroup(["sectionFilter", "categoryFilter", "searchText"], function(oldVal, newVal) {
+			$scope.$watchGroup(["sectionFilter", "categoryFilter", "searchText", "statusFilter"], function(oldVal, newVal) {
 				$scope.meetingsToDisplay = [];
 				$scope.makersToDisplay = [];
 				var meetings2 = filterFilter(angular.copy(meetings), $scope.searchText);
@@ -48,15 +48,26 @@ app.controller('MainController', [
 				for (var i = 0; i < meetings2.length; i++) {
 					var meeting = meetings2[i];
 					if ((meeting.category == $scope.categoryFilter || !$scope.categoryFilter) &&
-					    (meeting.section == $scope.sectionFilter || !$scope.sectionFilter)) {
-						$scope.meetingsToDisplay.push(meeting);
-						if (meeting.latitude && meeting.longitude) {
-							$scope.makersToDisplay.push(meeting);
-						}
+					    (meeting.section == $scope.sectionFilter || !$scope.sectionFilter)
+					    && isInStatusEventFilter(meeting)) {
+				      $scope.meetingsToDisplay.push(meeting);
+					  if (meeting.latitude && meeting.longitude) {
+					    $scope.makersToDisplay.push(meeting);
+					  }
 					}
 				}
 			});
 			
+			
+			function isInStatusEventFilter(meeting) {
+				if (!$scope.statusFilter) {
+					return true;
+				} else if ($scope.statusFilter == "FUTURE") {
+					return new Date() < new Date(meeting.start_time);
+				} else {
+					return new Date() > new Date(meeting.start_time);
+				}
+			}
 			
 			
 			//================================================================
@@ -97,6 +108,13 @@ app.controller('MainController', [
 				return textElements.indexOf(key) != -1;
 			}
 
-			//$scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+
+			$scope.orderField = 'start_time';
+			$scope.reverse = true;
+			$scope.changeOrderBy = function(header) {
+				$scope.reverse = !$scope.reverse;
+				$scope.orderField = header.field;
+			}
+			
 			
 		} ]);

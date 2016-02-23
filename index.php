@@ -52,6 +52,14 @@
 					    <md-option ng-value="category" ng-repeat="category in categories">{{ category }}</md-option>
 					  </md-select>
 					</md-input-container>
+					or only past / future events:
+          <md-input-container style="width: 150px;display: inline-block;">
+					  <md-select ng-model="statusFilter" placeholder="Select a status">
+					    <md-option ng-value="undefined">ALL</md-option>
+					    <md-option ng-value="'FUTURE'">Future Events</md-option>
+					    <md-option ng-value="'PAST'">Past Events</md-option>
+					  </md-select>
+					</md-input-container>
 		      &nbsp;
 		      <span>
 						<b>({{meetingsToDisplay.length}} events)</b>

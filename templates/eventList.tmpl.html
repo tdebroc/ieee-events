@@ -1,9 +1,13 @@
 <table id="meetingTable" class="table table-striped">
   <tr>
-    <th>Date</th>
-    <th>Title</th>
+    <th ng-repeat="header in [{title : 'Date', field : 'start_time'}, {title : 'Title', field : 'title'}]"
+        ng-click="changeOrderBy(header)">
+      {{header.title}}
+      <span ng-if="header.field == orderField && reverse">&#x25BC</span>
+      <span ng-if="header.field == orderField && !reverse">&#x25B2</span>
+    </th>
   </tr>
-  <tr ng-repeat="meeting in meetingsToDisplay"
+  <tr ng-repeat="meeting in meetingsToDisplay | orderBy : orderField : reverse"
       ng-click="showEventDialog($event, meeting)">
     <td>
       <a href="#" class="meetingLink" data-id="{{meeting.id}}">
