@@ -24,7 +24,9 @@
             <div class="col-md-1"></div>
             <div class="col-md-10" style="background-color: rgb(16, 108, 200); ">
               <h1 class="site-title">
-                <a href="http://www.ieeer8.org/" rel="home" style="color: white;">IEEE Region 8</a>
+                <a href="http://www.ieeer8.org/" rel="home" style="color: white;">
+                  Welcome to Region 8 IEEE Event Exchange Program
+                </a>
               </h1>
             </div>
       </div>
@@ -32,39 +34,35 @@
       <div id="introduction" class="row" >
         <div class="col-md-1"></div>
         <div class="col-md-10">
-          <h2>Welcome to Region 8 IEEE Event Exchange Program</h2>
-					<img src="images/icons2/searchicon.png" width="30"/>
-					<md-input-container style="width:180px;display:inline-block">
-		        <label>title, keywords, date...</label>
+					<br/>
+					<md-input-container class="inputIntro searchInput">
+		        <label><img src="images/icons2/searchicon.png" width="20"/>title, keywords, date...</label>
 		        <input ng-model="searchText" type="text" >
 		      </md-input-container>
-          or filter by section:
-          <md-input-container style="width: 150px;display: inline-block;">
+          <md-input-container class="inputIntro selector">
 					  <md-select ng-model="sectionFilter" placeholder="Select a state" ng-change="changeFilter()">
-					    <md-option ng-value="undefined">ALL</md-option>
+					    <md-option ng-value="undefined">All Sections</md-option>
 					    <md-option ng-value="section" ng-repeat="section in sections">{{ section }}</md-option>
 					  </md-select>
 					</md-input-container>
-          or by category:
-          <md-input-container style="width: 150px;display: inline-block;">
+          <md-input-container class="inputIntro selector">
 					  <md-select ng-model="categoryFilter" placeholder="Select a category">
-					  <md-option ng-value="undefined">ALL</md-option>
+					  <md-option ng-value="undefined">All Categories</md-option>
 					    <md-option ng-value="category" ng-repeat="category in categories">{{ category }}</md-option>
 					  </md-select>
 					</md-input-container>
-					or only past / future events:
-          <md-input-container style="width: 150px;display: inline-block;">
+          <md-input-container class="inputIntro selector">
 					  <md-select ng-model="statusFilter" placeholder="Select a status">
-					    <md-option ng-value="undefined">ALL</md-option>
+					    <md-option ng-value="undefined">Past and Future</md-option>
 					    <md-option ng-value="'FUTURE'">Future Events</md-option>
 					    <md-option ng-value="'PAST'">Past Events</md-option>
 					  </md-select>
 					</md-input-container>
-		      &nbsp;
-		      <span>
-						<b>({{meetingsToDisplay.length}} events)</b>
-					</span>
+					<div style="display: inline-block;float:left">
+							&nbsp;<b>({{meetingsToDisplay.length}} events)</b>
+		      </div>
         </div>
+        <div class="col-md-1"></div>
       </div>
       
       
@@ -119,6 +117,7 @@
 				<script src="js/lib/jquery/jquery-1.11.2.min.js"></script>
 				<!-- Lib -->
 		    <script src="js/lib/bootstrap/bootstrap.js"></script>
+		    <script src="js/lib/moment.js"></script>
 		    <script src="bower_components/lodash/dist/lodash.min.js"></script>
 				<!-- Angular -->
 				<script src="components/angular/angular.min.js"></script>

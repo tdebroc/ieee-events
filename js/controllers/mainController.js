@@ -3,7 +3,9 @@ app.controller('MainController', [
 		"$rootScope",
 		"$mdDialog",
 		'filterFilter',
-		function($scope, $rootScope, $mdDialog,  filterFilter) {
+		"$timeout",
+		"uiGmapIsReady",
+		function($scope, $rootScope, $mdDialog,  filterFilter, $timeout, uiGmapIsReady) {
 			$scope.meetings = meetings;
 			$scope.sections = getUniqueElements(meetings, "section");
 			$scope.categories = getUniqueElements(meetings, "category");
@@ -63,9 +65,9 @@ app.controller('MainController', [
 				if (!$scope.statusFilter) {
 					return true;
 				} else if ($scope.statusFilter == "FUTURE") {
-					return new Date() < new Date(meeting.start_time);
+					return moment(meeting.start_time, "YYYY-MM-DD HH:mm:ss").isAfter(new Date())
 				} else {
-					return new Date() > new Date(meeting.start_time);
+					return moment(meeting.start_time, "YYYY-MM-DD HH:mm:ss").isBefore(new Date())
 				}
 			}
 			
@@ -117,4 +119,14 @@ app.controller('MainController', [
 			}
 			
 			
+			uiGmapIsReady.promise()
+			.then(function(instances) {
+				var mapHeight = ($(window).height() - $(".angular-google-map-container").offset().top); 
+				$(".angular-google-map-container").height(mapHeight);
+				console.log(mapHeight);
+			});
+			
+			
 		} ]);
+
+

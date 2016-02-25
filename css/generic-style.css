@@ -1,5 +1,45 @@
+#header {
+	margin-bottom: 3px;
+}
 .angular-google-map-container { height: 400px; }
 
 #eventMap .angular-google-map-container {
 	height: 600px; 
+}
+
+.inputIntro {
+	float: left;
+  padding-bottom: 2px;
+}
+
+.inputIntro.selector {
+	width: 150px;
+}
+
+.inputIntro.searchInput {
+  margin-top:-26px;"	
+  width:200px;
+}
+
+.md-select-menu-container {
+	z-index: 200;
+}
+ 
+@media (min-width: 1150px) {
+  #introduction {
+		margin-top: -3px;
+    position: absolute;
+		right: 0px;
+		width: 950px;
+  }
+  
+  #introduction .col-md-10 {
+    z-index: 100;
+  }
+  
+}
+  
+   
+.row {
+	margin: 0px;
 }
