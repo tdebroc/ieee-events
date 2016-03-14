@@ -73,21 +73,21 @@
 				    <md-tabs md-dynamic-height="" md-border-bottom="">
 				      <md-tab>
 				        <md-tab-label>
-						      <img src='images/icons2/list_bullets_black.png' style="width: 20px" />
-						      List
-						    </md-tab-label>
-				        <md-content class="md-padding">
-				          <ng-include src="'templates/eventList.tmpl.html'">
-									</ng-include>
-				        </md-content>
-				      </md-tab>
-				      <md-tab>
-				        <md-tab-label>
 						      <img src='images/icons2/maps-icon.png' style="width: 30px" />
 						      Map
 						    </md-tab-label>
 				        <md-content class="md-padding">
 				        	<ng-include src="'templates/eventMap.tmpl.html'" >
+									</ng-include>
+				        </md-content>
+				      </md-tab>
+				      <md-tab>
+				        <md-tab-label>
+						      <img src='images/icons2/list_bullets_black.png' style="width: 20px" />
+						      List
+						    </md-tab-label>
+				        <md-content class="md-padding">
+				          <ng-include src="'templates/eventList.tmpl.html'">
 									</ng-include>
 				        </md-content>
 				      </md-tab>
